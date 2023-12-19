@@ -1,0 +1,44 @@
+table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    thead {
+        th {
+            top:0;
+            font-size: 14px;
+            position: sticky;
+            z-index: 20;
+        }
+    }
+    th {
+        font-size: 12px;
+        font-weight: 500;
+        .icon {
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .first-name {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+    .search-box {
+        position: relative;
+    }
+    input[type=text] {
+        padding-right: 25px;
+        width: 125px;
+    }
+    .fa-search {
+        position: absolute;
+        right: 10px;
+        color: black;
+        top: 5px;
+        cursor: pointer;
+    }
+    .table-centre{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

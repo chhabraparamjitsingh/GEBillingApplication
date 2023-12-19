@@ -1,0 +1,142 @@
+<h1 class="text-center mb-4">Customer Detail</h1>
+<form [formGroup]="recordForm" class="col-12">
+  <div class="row">
+    <div class="col-2 offset-md-4">
+      <label for="">First Name</label>
+    </div>
+    <div class="col-6">
+      <input
+        type="text"
+        formControlName="fName"
+        class="form-control shadow-none w-auto mb-2"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 offset-md-4">
+      <label for="">Middle Name</label>
+    </div>
+    <div class="col-6">
+      <input
+        type="text"
+        formControlName="mName"
+        class="form-control shadow-none w-auto mb-2"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 offset-md-4">
+      <label for="">Last Name</label>
+    </div>
+    <div class="col-6">
+      <input
+        type="text"
+        formControlName="lName"
+        class="form-control shadow-none w-auto mb-2"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 offset-md-4">
+      <label for="">Mobile Number</label>
+    </div>
+    <div class="col-6">
+      <input
+        type="text"
+        formControlName="contact"
+        class="form-control shadow-none w-auto mb-2"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 offset-md-4">
+      <label for="">Alternate Mobile Number</label>
+    </div>
+    <div class="col-6">
+      <input
+        type="text"
+        formControlName="alternateContact"
+        class="form-control shadow-none w-auto mb-2"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 offset-md-4">
+      <label for="">Address</label>
+    </div>
+    <div class="col-6">
+      <input
+        type="text"
+        formControlName="address"
+        class="form-control shadow-none w-auto mb-2"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 offset-md-4">
+      <label for="">Locality</label>
+    </div>
+    <div class="col-6">
+      <input
+        type="text"
+        formControlName="locality"
+        class="form-control shadow-none w-auto mb-2"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 offset-md-4">
+      <label for="">Taluka</label>
+    </div>
+    <div class="col-6">
+      <input
+        type="text"
+        formControlName="taluka"
+        class="form-control shadow-none w-auto mb-2"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 offset-md-4">
+      <label for="">Occupation</label>
+    </div>
+    <div class="col-6">
+      <input
+        type="text"
+        formControlName="occupation"
+        class="form-control shadow-none w-auto mb-2"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 offset-md-4">
+      <label for="">Employer</label>
+    </div>
+    <div class="col-6">
+      <input
+        type="text"
+        formControlName="employer"
+        class="form-control shadow-none w-auto mb-2"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 offset-md-4">
+      <label for="">Comment</label>
+    </div>
+    <div class="col-6">
+      <textarea
+        class="form-control shadow-none w-auto"
+        placeholder="Enter your comment"
+        formControlName="comment"
+        row="4"
+      ></textarea>
+    </div>
+  </div>
+  <div class="row mt-4 pb-4">
+    <button class="btn btn-primary col-1 offset-md-5 mr-4">
+      {{ buttonActionName }}
+    </button>
+    <button class="btn btn-secondary col-1" (click)="reset()">Reset</button>
+  </div>
+</form>

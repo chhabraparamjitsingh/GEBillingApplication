@@ -1,0 +1,59 @@
+[
+    {
+      "customerKey": "xyz",
+      "mobileNo": "43243243243",
+      "firstName": "John",
+      "middleName": "Doe",
+      "lastName": "Smith",
+      "completeAddress": "123 Main St",
+      "locality": "Cityville",
+      "taluka": "District A",
+      "occupation": "Engineer",
+      "employer": "Tech Corp",
+      "altMobileNo": "555-555-5555",
+      "comments": "This is a comment."
+    },
+    {
+      "customerKey": "abc",
+      "mobileNo": "9876543210",
+      "firstName": "Alice",
+      "middleName": "Wonder",
+      "lastName": "Land",
+      "completeAddress": "456 Oak St",
+      "locality": "Townsville",
+      "taluka": "District B",
+      "occupation": "Designer",
+      "employer": "Design Co.",
+      "altMobileNo": "123-456-7890",
+      "comments": "Another comment."
+    },
+    {
+      "customerKey": "123",
+      "mobileNo": "5555555555",
+      "firstName": "Bob",
+      "middleName": "Builder",
+      "lastName": "Construct",
+      "completeAddress": "789 Brick St",
+      "locality": "Construction Town",
+      "taluka": "District C",
+      "occupation": "Builder",
+      "employer": "Construction Inc.",
+      "altMobileNo": "987-654-3210",
+      "comments": "Building the future."
+    },
+    {
+      "customerKey": "456",
+      "mobileNo": "1231231234",
+      "firstName": "Eve",
+      "middleName": "Mystery",
+      "lastName": "Sleuth",
+      "completeAddress": "321 Detective Lane",
+      "locality": "Mystery City",
+      "taluka": "District D",
+      "occupation": "Detective",
+      "employer": "Mystery Investigations",
+      "altMobileNo": "234-567-8901",
+      "comments": "Solving cases."
+    }
+  ]
+  

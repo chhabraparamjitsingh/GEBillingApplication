@@ -1,0 +1,213 @@
+<section class="col-12">
+ 
+  <table class="table table-striped mt-3 table-centre" style="width:1500px; height:600px; overflow:auto;">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">
+          CustomerKey
+          <!-- <div class="search-box">
+            <input type="text" />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div> -->
+        </th>
+        <th scope="col">
+          First Name
+          <!-- <div class="search-box">
+            <input type="text" />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div> -->
+        </th>
+        <th scope="col">
+          Middle Name
+          <!-- <div class="search-box">
+            <input type="text" />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div> -->
+        </th>
+        <th scope="col">
+          Last Name
+          <!-- <div class="search-box">
+            <input type="text" />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div> -->
+        </th>
+        <th scope="col">
+          Mobile No.
+          <!-- <div class="search-box">
+            <input type="text" />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div> -->
+        </th>
+        <th scope="col">
+          Alt Mobile No.
+          <!-- <div class="search-box">
+            <input type="text" />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div> -->
+        </th>
+        <th scope="col">
+          Gender
+          <!-- <div class="search-box">
+            <input type="text" />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div> -->
+        </th>
+        <th scope="col">
+          Address
+          <!-- <div class="search-box">
+            <input type="text" />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div> -->
+        </th>
+        <th scope="col">
+          Locality
+          <!-- <div class="search-box">
+            <input type="text" />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div> -->
+        </th>
+        <th scope="col">
+          Taluka
+          <!-- <div class="search-box">
+            <input type="text" />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div> -->
+        </th>
+        <th scope="col">
+          Pincode
+          <!-- <div class="search-box">
+            <input type="text" />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div> -->
+        </th>
+        <th scope="col">
+          Date Of Birth
+          <!-- <div class="search-box">
+            <input type="text" />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div> -->
+        </th>
+        <th scope="col">
+          Occupation
+          <!-- <div class="search-box">
+            <input type="text" />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div> -->
+        </th>
+        <th scope="col">
+          Employer
+          <!-- <div class="search-box">
+            <input type="text" />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div> -->
+        </th>
+        <th scope="col">
+          Email Id
+          <!-- <div class="search-box">
+            <input type="text" />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div> -->
+        </th>
+        <th scope="col">
+          Comments
+          <!-- <div class="search-box">
+            <input type="text" />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div> -->
+        </th>
+        <!-- <th scope="col">Action</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cust of jsonDataResult">
+        <th scope="row">
+          <a (click)="edit(cust)" class="text-info first-name">
+            {{ cust.CustomerKey }}
+          </a>
+        </th>
+        <th>{{ cust.FirstName }}</th>
+        <th>{{ cust.MiddleName }}</th>
+        <th>{{ cust.LastName }}</th>
+        <th>{{ cust.MobileNo }}</th>
+        <th>{{ cust.AltMobileNo }}</th>
+        <th>{{ cust.Gender }}</th>
+        <th>{{ cust.CompleteAddress }}</th>
+        <th>{{ cust.Locality }}</th>
+        <th>{{ cust.Taluka }}</th>
+        <th>{{ cust.PinCode }}</th>
+        <th>{{ cust.DateOfBirth }}</th>
+        <th>{{ cust.Occupation }}</th>
+        <th>{{ cust.Employer }}</th>
+        <th>{{ cust.EmailId }}</th>
+        <th>{{ cust.Comments }}</th>
+        <!-- <th>
+          <span class="icon mr-2" (click)="edit(cust)">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </span>
+          <span class="icon" (click)="open(cust, template)">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </span>
+        </th> -->
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Confirmation</h4>
+      <button
+        type="button"
+        class="close pull-right"
+        aria-label="Close"
+        (click)="modalRef.hide()"
+      >
+        <span aria-hidden="true"
+          ><i class="fa fa-close" aria-hidden="true"></i
+        ></span>
+      </button>
+    </div>
+    <div class="modal-body">Are you sure you want to delete this record?</div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="open(null, confirmationTemplate)"
+      >
+        Yes
+      </button>
+      <button type="button" class="btn btn-default" (click)="modalRef.hide()">
+        No
+      </button>
+    </div>
+  </ng-template>
+  <ng-template #confirmationTemplate>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Delete Record</h4>
+      <button
+        type="button"
+        class="close pull-right"
+        aria-label="Close"
+        (click)="close()"
+      >
+        <span aria-hidden="true">
+          <i class="fa fa-close" aria-hidden="true"></i>
+        </span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div>
+        Enter PIN to delete the record : <br />
+        <input
+          type="password"
+          placeholder="Enter PIN"
+          [(ngModel)]="pinNumber"
+        />
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="confirmDeletion()">
+        Confirm
+      </button>
+    </div>
+  </ng-template>
+</section>
