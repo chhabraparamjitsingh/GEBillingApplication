@@ -22,7 +22,7 @@ export class DatatableComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.http.get('/assets/json/CustomerRecord.json').subscribe((res) => {
+    this.http.get('/assets/json/AllCustomerRecords.json').subscribe((res) => {
       this.jsonDataResult = res;
       // console.log('--- result :: ', this.jsonDataResult);
     });
