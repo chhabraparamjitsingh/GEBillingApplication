@@ -16,7 +16,7 @@ public class CustomerRecordOperations {
 	
 	@Autowired
     private JdbcTemplate jdbcTemplate;
-	String fileDirectory = "D:/GEBillingApplication/GEDatabase/src/assets/json";
+	String fileDirectory = "D:/GEBillingApplication/GEDatabase/src/assets/json/";
 	String AllCustomerRecordFileName = "AllCustomerRecords.json";
 	String SingleCustomerRecordFileName = "SingleCustomerRecord.json";
 
