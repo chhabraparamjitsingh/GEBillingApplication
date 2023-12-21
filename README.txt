@@ -268,3 +268,21 @@ https://www.coderanch.com/t/306316/databases/SQLServerException-TCP-IP-connectio
 ### -> ', '
 \t	-> Nothing
 $ -> '\)
+
+
+
+
+
+
+Angular
+
+
+Creating new component command
+//Go to destination dir where you wish to create the component and run the below command in the terminal
+
+-> ng g c component1
+
+
+#---How to call a function from other component
+https://www.youtube.com/watch?v=kUc-rwbJtqY
+

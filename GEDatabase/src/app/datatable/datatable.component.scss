@@ -1,17 +1,20 @@
 table {
     width: 100%;
     display: block;
-    overflow-x: auto;
+    overflow: auto;
     white-space: nowrap;
     thead {
         th {
+            text-align: center;
             top:0;
             font-size: 14px;
             position: sticky;
-            z-index: 20;
+            z-index: 1;
         }
     }
     th {
+        text-align: left;
+        vertical-align: middle;
         font-size: 12px;
         font-weight: 500;
         .icon {
@@ -25,6 +28,14 @@ table {
     }
     .search-box {
         position: relative;
+    }
+    .data-wrap-address{
+        white-space: normal;
+        width: 300px;
+    }
+    .data-wrap-comments{
+        white-space: normal;
+        width: 100px;
     }
     input[type=text] {
         padding-right: 25px;

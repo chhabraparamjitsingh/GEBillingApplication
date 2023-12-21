@@ -1,94 +1,64 @@
 <form [formGroup]="searchForm" class="col-12 mb-5 mt-5">
   <!-- <script src="searchbar.component.ts"> </script> -->
-  <div class="row">
+  <div class="row mt-1">
     <div class="col-2">
       <label for="">Mobile No</label>
-      <input
-        type="text"
-        class="form-control shadow-none"
-        formControlName="searchKey"
-      />
+      <input type="text" class="form-control shadow-none" formControlName="searchKey" />
     </div>
-        <div class="col-2">
-      <label for="">Name</label>
-      <input
-        type="text"
-        class="form-control shadow-none"
-        formControlName="searchKey"
-      />
+    <div class="col-2">
+      <label for="">First Name</label>
+      <input type="text" class="form-control shadow-none" formControlName="searchKey" />
     </div>
-    <!-- <div class="col-1">
+    <div class="col-2">
       <label for="">Middle Name</label>
-      <input
-        type="text"
-        class="form-control shadow-none"
-        formControlName="searchKey"
-      />
+      <input type="text" class="form-control shadow-none" formControlName="searchKey" />
     </div>
-    <div class="col-1">
+    <div class="col-2">
       <label for="">Last Name</label>
-      <input
-        type="text"
-        class="form-control shadow-none"
-        formControlName="searchKey"
-      />
-    </div> -->
+      <input type="text" class="form-control shadow-none" formControlName="searchKey" />
+    </div>
 
     <div class="col-2">
       <label for="">Address</label>
-      <input
-        type="text"
-        class="form-control shadow-none"
-        formControlName="searchKey"
-      />
+      <input type="text" class="form-control shadow-none" formControlName="searchKey" />
     </div>
-    <div class="col-1">
+  </div>
+ 
+  <div class="row mt-2">
+    <div class="col-2">
       <label for="">Locality</label>
-      <input
-        type="text"
-        class="form-control shadow-none"
-        formControlName="searchKey"
-      />
+      <input type="text" class="form-control shadow-none" formControlName="searchKey" />
     </div>
-    <div class="col-1">
+    <div class="col-2">
       <label for="">Taluka</label>
-      <input
-        type="text"
-        class="form-control shadow-none"
-        formControlName="searchKey"
-      />
+      <input type="text" class="form-control shadow-none" formControlName="searchKey" />
     </div>
-    <div class="col-1">
+    <div class="col-2">
       <label for="">Occupation</label>
-      <input
-        type="text"
-        class="form-control shadow-none"
-        formControlName="searchKey"
-      />
+      <input type="text" class="form-control shadow-none" formControlName="searchKey" />
     </div>
-    <div class="col-1">
+    <div class="col-2">
       <label for="">Employer</label>
-      <input
-        type="text"
-        class="form-control shadow-none"
-        formControlName="searchKey"
-      />
+      <input type="text" class="form-control shadow-none" formControlName="searchKey" />
     </div>
-    <div class="col-1">
+    <div class="col-2">
       <label for="">Comments</label>
-      <input
-        type="text"
-        class="form-control shadow-none"
-        formControlName="searchKey"
-      />
+      <input type="text" class="form-control shadow-none" formControlName="searchKey" />
     </div>
-
-    <div class="col-12 mt-5">
+  </div>
+  
+  <div class="row">
+    <div class="col-1 mt-3">
       <button class="btn btn-primary shadow-none" (click)="search()">
         Search
       </button>
-     
+
+    </div>
+    <div class="col-1 mt-3">
+      <button class="btn btn-primary shadow-none" (click)="resetTable()">
+        Reset
+      </button>
     </div>
   </div>
-<!-- </script> -->
+  <!-- </script> -->
 </form>

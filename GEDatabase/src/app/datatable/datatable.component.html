@@ -1,10 +1,11 @@
 <section class="col-12">
  
-  <table class="table table-striped mt-3 table-centre" style="width:1500px; height:600px; overflow:auto;">
+  <table class="table table-striped mt-3 table-centre" style="width:1500px; height:600px; ">
     <thead class="thead-dark">
       <tr>
+      
         <th scope="col">
-          CustomerKey
+          Action
           <!-- <div class="search-box">
             <input type="text" />
             <i class="fa fa-search" aria-hidden="true"></i>
@@ -115,15 +116,27 @@
             <i class="fa fa-search" aria-hidden="true"></i>
           </div> -->
         </th>
+        <th scope="col">
+          Customer Id
+          <!-- <div class="search-box">
+            <input type="text" />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div> -->
+        </th>
         <!-- <th scope="col">Action</th> -->
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let cust of jsonDataResult">
-        <th scope="row">
+      <!-- <tr *ngFor="let cust of jsonDataResult"> -->
+        <tr *ngFor="let cust of searchResult">
+        
+          <th scope="row">
           <a (click)="edit(cust)" class="text-info first-name">
-            {{ cust.CustomerKey }}
+            View Record<!-- {{ cust.CustomerKey }} -->
           </a>
+          <!-- <button type="button" class="btn .btn-link" (click)="edit(cust)">
+            View
+          </button> -->
         </th>
         <th>{{ cust.FirstName }}</th>
         <th>{{ cust.MiddleName }}</th>
@@ -131,7 +144,11 @@
         <th>{{ cust.MobileNo }}</th>
         <th>{{ cust.AltMobileNo }}</th>
         <th>{{ cust.Gender }}</th>
-        <th>{{ cust.CompleteAddress }}</th>
+        <th>
+          <div class="data-wrap-address">
+            {{ cust.CompleteAddress }}
+          </div>
+        </th>
         <th>{{ cust.Locality }}</th>
         <th>{{ cust.Taluka }}</th>
         <th>{{ cust.PinCode }}</th>
@@ -139,7 +156,12 @@
         <th>{{ cust.Occupation }}</th>
         <th>{{ cust.Employer }}</th>
         <th>{{ cust.EmailId }}</th>
-        <th>{{ cust.Comments }}</th>
+        <th>
+          <div class="data-wrap-comment">
+            {{ cust.Comments }}
+          </div>
+        </th>
+        <th>{{ cust.CustomerKey }}</th>
         <!-- <th>
           <span class="icon mr-2" (click)="edit(cust)">
             <i class="fa fa-pencil" aria-hidden="true"></i>

@@ -11,7 +11,6 @@ export class DashboardComponent {
   constructor(private router: Router, private appService: AppService) {}
 
   addRecord() {
-    alert("Test Add Record");
     this.appService.setData(null);
     this.router.navigate(['/record-detail']);
   }
