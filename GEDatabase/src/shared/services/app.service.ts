@@ -6,6 +6,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 })
 export class AppService {
   private dataSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  private searchObject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
   constructor() {}
 
@@ -15,5 +16,13 @@ export class AppService {
 
   getData() {
     return this.dataSubject.asObservable();
+  }
+
+  setObject(data: any) {
+    this.searchObject.next(data);
+  }
+
+  getObject() {
+    return this.searchObject.asObservable();
   }
 }

@@ -3,11 +3,7 @@ import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { AppService } from 'src/shared/services/app.service';
-import { SharedService } from '../shared.service';
-import { Subscription } from 'rxjs';
-
-
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'datatable',
@@ -16,27 +12,31 @@ import { Subscription } from 'rxjs';
 })
 export class DatatableComponent implements OnInit, OnDestroy {
   jsonDataResult: any;
-  searchResult:any;
+  originalTableData: any;
   fileLocation: string = '/assets/json/AllCustomerRecords.json';
   modalRef: any;
   pinNumber = '';
-  searchButtonEventSubscription:Subscription;
-  //resetButtonEventSubscription:Subscription;
+  tableData: any;
+  searchForm: FormGroup;
 
   constructor(
     private http: HttpClient,
     private modalService: BsModalService,
     private router: Router,
-    private appService: AppService,
-    private sharedService:SharedService,
-    private sharedService2:SharedService
+    private appService: AppService
   ) {
-    this.searchButtonEventSubscription = this.sharedService.getKeyPressEvent()
-          .subscribe(()=>{this.onKeyPress();})
-    console.log(this.searchButtonEventSubscription);      
-    // this.resetButtonEventSubscription = this.sharedService2.getResetEvent()
-    //       .subscribe(()=>{this.onReset();})
-    // console.log(this.resetButtonEventSubscription);  
+    this.searchForm = new FormGroup({
+      FirstName: new FormControl('', Validators.required),
+      LastName: new FormControl('', Validators.required),
+      MiddleName: new FormControl('', Validators.required),
+      MobileNo: new FormControl('', Validators.required),
+      CompleteAddress: new FormControl('', Validators.required),
+      Locality: new FormControl('', Validators.required),
+      Taluka: new FormControl('', Validators.required),
+      Occupation: new FormControl('', Validators.required),
+      Employer: new FormControl('', Validators.required),
+      Comments: new FormControl('', Validators.required),
+    });
   }
 
   //Fetch all the customer records from the Database while loading the page
@@ -44,36 +44,40 @@ export class DatatableComponent implements OnInit, OnDestroy {
     this.fetchAllCustomerRecords();
   }
 
-  //This function fetches all the customer records from the Database
-  fetchAllCustomerRecords(){
-    this.http.get(this.fileLocation)
-                .subscribe((res) => {
-                    this.jsonDataResult = res;
-                    this.searchResult = this.jsonDataResult;
-                    //console.log('--- result :: ', this.jsonDataResult);  
-                });
+  //This function is for calling the API
+  fetchAllCustomerRecords() {
+    this.http.get(this.fileLocation).subscribe((res) => {
+      this.tableData = res;
+      this.originalTableData = res;
+    });
   }
 
-  onReset(){
-    console.log('The reset button has been called successfully');
-    this.fetchAllCustomerRecords();
-  }
+  filterTable(): void {
+    const filter = this.searchForm.value;
 
-  onKeyPress(){
-    this.searchResult = [];
-    for (let i = 0; i < this.jsonDataResult.length; i++) {
-      let testString = '9637966543';
-      //console.log('Record No:', i, '- Mobile No.: ', this.jsonDataResult[i].MobileNo );
-    
-      if (this.jsonDataResult[i].MobileNo == testString){
-        this.searchResult.push(this.jsonDataResult[i]);
-        console.log(this.searchResult[0]);
-      }
-    }
+    this.tableData = this.originalTableData.filter((cust: any) => {
+      return (
+        cust.FirstName.toLowerCase().includes(filter.FirstName.toLowerCase()) &&
+        cust.MiddleName.toLowerCase().includes(
+          filter.MiddleName.toLowerCase()
+        ) &&
+        cust.LastName.toLowerCase().includes(filter.LastName.toLowerCase()) &&
+        cust.MobileNo.toLowerCase().includes(filter.MobileNo.toLowerCase()) &&
+        cust.CompleteAddress.toLowerCase().includes(
+          filter.CompleteAddress.toLowerCase()
+        ) &&
+        cust.Locality.toLowerCase().includes(filter.Locality.toLowerCase()) &&
+        cust.Taluka.toLowerCase().includes(filter.Taluka.toLowerCase()) &&
+        cust.Occupation.toLowerCase().includes(
+          filter.Occupation.toLowerCase()
+        ) &&
+        cust.Employer.toLowerCase().includes(filter.Employer.toLowerCase()) &&
+        cust.Comments.toLowerCase().includes(filter.Comments.toLowerCase())
+      );
+    });
   }
 
   open(data: any, template: TemplateRef<any>) {
-    // console.log('data cust', data);
     this.modalRef = this.modalService.show(template);
   }
 
@@ -88,6 +92,11 @@ export class DatatableComponent implements OnInit, OnDestroy {
   edit(cust: any) {
     this.appService.setData(cust);
     this.router.navigate(['record-detail']);
+  }
+
+  onReset(): void {
+    this.searchForm.reset();
+    this.tableData = this.originalTableData;
   }
 
   ngOnDestroy(): void {}

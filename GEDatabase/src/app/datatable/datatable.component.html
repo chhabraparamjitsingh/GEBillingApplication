@@ -1,168 +1,167 @@
 <section class="col-12">
- 
-  <table class="table table-striped mt-3 table-centre" style="width:1500px; height:600px; ">
-    <thead class="thead-dark">
-      <tr>
-      
-        <th scope="col">
-          Action
-          <!-- <div class="search-box">
-            <input type="text" />
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div> -->
-        </th>
-        <th scope="col">
-          First Name
-          <!-- <div class="search-box">
-            <input type="text" />
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div> -->
-        </th>
-        <th scope="col">
-          Middle Name
-          <!-- <div class="search-box">
-            <input type="text" />
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div> -->
-        </th>
-        <th scope="col">
-          Last Name
-          <!-- <div class="search-box">
-            <input type="text" />
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div> -->
-        </th>
-        <th scope="col">
-          Mobile No.
-          <!-- <div class="search-box">
-            <input type="text" />
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div> -->
-        </th>
-        <th scope="col">
-          Alt Mobile No.
-          <!-- <div class="search-box">
-            <input type="text" />
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div> -->
-        </th>
-        <th scope="col">
-          Gender
-          <!-- <div class="search-box">
-            <input type="text" />
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div> -->
-        </th>
-        <th scope="col">
-          Address
-          <!-- <div class="search-box">
-            <input type="text" />
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div> -->
-        </th>
-        <th scope="col">
-          Locality
-          <!-- <div class="search-box">
-            <input type="text" />
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div> -->
-        </th>
-        <th scope="col">
-          Taluka
-          <!-- <div class="search-box">
-            <input type="text" />
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div> -->
-        </th>
-        <th scope="col">
-          Pincode
-          <!-- <div class="search-box">
-            <input type="text" />
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div> -->
-        </th>
-        <th scope="col">
-          Date Of Birth
-          <!-- <div class="search-box">
-            <input type="text" />
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div> -->
-        </th>
-        <th scope="col">
-          Occupation
-          <!-- <div class="search-box">
-            <input type="text" />
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div> -->
-        </th>
-        <th scope="col">
-          Employer
-          <!-- <div class="search-box">
-            <input type="text" />
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div> -->
-        </th>
-        <th scope="col">
-          Email Id
-          <!-- <div class="search-box">
-            <input type="text" />
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div> -->
-        </th>
-        <th scope="col">
-          Comments
-          <!-- <div class="search-box">
-            <input type="text" />
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div> -->
-        </th>
-        <th scope="col">
-          Customer Id
-          <!-- <div class="search-box">
-            <input type="text" />
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </div> -->
-        </th>
-        <!-- <th scope="col">Action</th> -->
-      </tr>
-    </thead>
-    <tbody>
-      <!-- <tr *ngFor="let cust of jsonDataResult"> -->
-        <tr *ngFor="let cust of searchResult">
-        
-          <th scope="row">
-          <a (click)="edit(cust)" class="text-info first-name">
-            View Record<!-- {{ cust.CustomerKey }} -->
-          </a>
-          <!-- <button type="button" class="btn .btn-link" (click)="edit(cust)">
+  <button
+    class="btn btn-primary shadow-none float-right mb-3 mt-3"
+    (click)="onReset()"
+  >
+    Reset
+  </button>
+  <form [formGroup]="searchForm">
+    <table
+      class="table table-striped mt-3 table-centre"
+      style="width: 1500px; height: 600px"
+    >
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Action</th>
+          <th scope="col">
+            First Name
+            <div class="search-box">
+              <input
+                type="text"
+                class="shadow-none"
+                formControlName="FirstName"
+                (input)="filterTable()"
+              />
+            </div>
+          </th>
+          <th scope="col">
+            Middle Name
+            <div class="search-box">
+              <input
+                type="text"
+                class="shadow-none"
+                formControlName="MiddleName"
+                (input)="filterTable()"
+              />
+            </div>
+          </th>
+          <th scope="col">
+            Last Name
+            <div class="search-box">
+              <input
+                type="text"
+                class="shadow-none"
+                formControlName="LastName"
+                (input)="filterTable()"
+              />
+            </div>
+          </th>
+          <th scope="col">
+            Mobile No.
+            <div class="search-box">
+              <input
+                type="text"
+                class="shadow-none"
+                formControlName="MobileNo"
+                (input)="filterTable()"
+              />
+            </div>
+          </th>
+          <th scope="col">
+            Address
+            <div class="search-box">
+              <input
+                type="text"
+                class="shadow-none"
+                formControlName="CompleteAddress"
+                (input)="filterTable()"
+              />
+            </div>
+          </th>
+          <th scope="col">
+            Locality
+            <div class="search-box">
+              <input
+                type="text"
+                class="shadow-none"
+                formControlName="Locality"
+                (input)="filterTable()"
+              />
+            </div>
+          </th>
+          <th scope="col">
+            Taluka
+            <div class="search-box">
+              <input
+                type="text"
+                class="shadow-none"
+                formControlName="Taluka"
+                (input)="filterTable()"
+              />
+            </div>
+          </th>
+          <th scope="col">
+            Occupation
+            <div class="search-box">
+              <input
+                type="text"
+                class="shadow-none"
+                formControlName="Occupation"
+                (input)="filterTable()"
+              />
+            </div>
+          </th>
+          <th scope="col">
+            Employer
+            <div class="search-box">
+              <input
+                type="text"
+                class="shadow-none"
+                formControlName="Employer"
+                (input)="filterTable()"
+              />
+            </div>
+          </th>
+          <th scope="col">
+            Comments
+            <div class="search-box">
+              <input
+                type="text"
+                class="shadow-none"
+                formControlName="Comments"
+                (input)="filterTable()"
+              />
+            </div>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- <tr *ngFor="let cust of jsonDataResult"> -->
+        <tr *ngFor="let cust of tableData">
+          <td scope="row">
+            <a (click)="edit(cust)" class="text-info first-name">
+              View Record<!-- {{ cust.CustomerKey }} -->
+            </a>
+            <!-- <button type="button" class="btn .btn-link" (click)="edit(cust)">
             View
           </button> -->
-        </th>
-        <th>{{ cust.FirstName }}</th>
-        <th>{{ cust.MiddleName }}</th>
-        <th>{{ cust.LastName }}</th>
-        <th>{{ cust.MobileNo }}</th>
-        <th>{{ cust.AltMobileNo }}</th>
-        <th>{{ cust.Gender }}</th>
-        <th>
-          <div class="data-wrap-address">
-            {{ cust.CompleteAddress }}
-          </div>
-        </th>
-        <th>{{ cust.Locality }}</th>
-        <th>{{ cust.Taluka }}</th>
-        <th>{{ cust.PinCode }}</th>
-        <th>{{ cust.DateOfBirth }}</th>
-        <th>{{ cust.Occupation }}</th>
-        <th>{{ cust.Employer }}</th>
-        <th>{{ cust.EmailId }}</th>
-        <th>
-          <div class="data-wrap-comment">
-            {{ cust.Comments }}
-          </div>
-        </th>
-        <th>{{ cust.CustomerKey }}</th>
-        <!-- <th>
+          </td>
+          <td>{{ cust.FirstName }}</td>
+          <td>{{ cust.MiddleName }}</td>
+          <td>{{ cust.LastName }}</td>
+          <td>{{ cust.MobileNo }}</td>
+          <!-- <td>{{ cust.AltMobileNo }}</td> -->
+          <!-- <td>{{ cust.Gender }}</td> -->
+          <td>
+            <div class="data-wrap-address">
+              {{ cust.CompleteAddress }}
+            </div>
+          </td>
+          <td>{{ cust.Locality }}</td>
+          <td>{{ cust.Taluka }}</td>
+          <!-- <td>{{ cust.PinCode }}</td> -->
+          <!-- <td>{{ cust.DateOfBirth }}</td> -->
+          <td>{{ cust.Occupation }}</td>
+          <td>{{ cust.Employer }}</td>
+          <!-- <td>{{ cust.EmailId }}</td> -->
+          <td>
+            <div class="data-wrap-comment">
+              {{ cust.Comments }}
+            </div>
+          </td>
+          <!-- <th>{{ cust.CustomerKey }}</th> -->
+          <!-- <th>
           <span class="icon mr-2" (click)="edit(cust)">
             <i class="fa fa-pencil" aria-hidden="true"></i>
           </span>
@@ -170,9 +169,10 @@
             <i class="fa fa-trash" aria-hidden="true"></i>
           </span>
         </th> -->
-      </tr>
-    </tbody>
-  </table>
+        </tr>
+      </tbody>
+    </table>
+  </form>
 
   <ng-template #template>
     <div class="modal-header">

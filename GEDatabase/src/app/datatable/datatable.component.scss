@@ -10,9 +10,14 @@ table {
             font-size: 14px;
             position: sticky;
             z-index: 1;
+            input {
+                &:focus-visible{
+                    outline: none;
+                }
+            }
         }
     }
-    th {
+    td, th {
         text-align: left;
         vertical-align: middle;
         font-size: 12px;
@@ -25,6 +30,9 @@ table {
             text-decoration: underline;
             cursor: pointer;
         }
+    }
+    td{
+        text-align: center;
     }
     .search-box {
         position: relative;
@@ -39,7 +47,7 @@ table {
     }
     input[type=text] {
         padding-right: 25px;
-        width: 125px;
+        // width: 125px;
     }
     .fa-search {
         position: absolute;
